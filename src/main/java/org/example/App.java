@@ -17,7 +17,7 @@ public class App extends ListenerAdapter {
                 .setActivity(Activity.playing("Hello World!"));
         jdaBuilder.build().updateCommands()
                 .addCommands(
-                        Commands.slash("ping", "Returns Pong!"),    // ping 슬래시 커맨드 등록
+                        Commands.slash("ping", "Returns Pong!"),
                         Commands.slash("hello", "Greets the user")
                 ).queue();
 
@@ -27,8 +27,8 @@ public class App extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if (event.getAuthor().isBot()) return; // 봇 메시지는 무시합니다
-        if (event.getMessage().getContentRaw().equals("!ping")) {
-            event.getChannel().sendMessage("Pong!").queue(); // !ping 명령어 처리
+        if (event.getMessage().getContentRaw().equals("안녕하세요")) {
+            event.getChannel().sendMessage(event.getAuthor()+" 님 만나서 반가워요!").queue();
         }
     }
 }
