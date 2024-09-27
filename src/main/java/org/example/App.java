@@ -28,7 +28,7 @@ public class App extends ListenerAdapter {
     public void onMessageReceived(MessageReceivedEvent event) {
         if (event.getAuthor().isBot()) return; // 봇 메시지는 무시합니다
         if (event.getMessage().getContentRaw().equals("안녕하세요")) {
-            event.getChannel().sendMessage(event.getAuthor()+" 님 만나서 반가워요!").queue();
+            event.getChannel().sendMessage(event.getAuthor().getName()+" 님 만나서 반가워요!").queue();
         }
     }
 }
