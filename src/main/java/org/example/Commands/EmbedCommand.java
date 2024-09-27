@@ -10,7 +10,7 @@ public class EmbedCommand extends ListenerAdapter {
     public void onMessageReceived(MessageReceivedEvent event) {
         if (event.getAuthor().isBot()) return;
 
-        if (event.getMessage().getContentRaw().startsWith("/embed")) {
+        if (event.getMessage().getContentRaw().startsWith("embed")) {
             EmbedBuilder embed = new EmbedBuilder();
             embed.setTitle("임베드 메시지 예제");             // 임베드 제목
             embed.setDescription("이것은 임베드 메시지의 설명입니다."); // 설명 텍스트

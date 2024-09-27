@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import org.example.Commands.HelloCommand;
 import org.example.Commands.PingCommand;
+import org.example.Commands.EmbedCommand;
 
 public class App extends ListenerAdapter {
     public static void main(String[] args) throws Exception{
@@ -14,11 +15,13 @@ public class App extends ListenerAdapter {
                 .addEventListeners(new App())
                 .addEventListeners(new HelloCommand())
                 .addEventListeners(new PingCommand())
+                .addEventListeners(new EmbedCommand())
                 .setActivity(Activity.playing("Hello World!"));
         jdaBuilder.build().updateCommands()
                 .addCommands(
                         Commands.slash("ping", "Returns Pong!"),
-                        Commands.slash("hello", "Greets the user")
+                        Commands.slash("hello", "Greets the user"),
+                        Commands.slash("embed","creates the embed")
                 ).queue();
 
 
