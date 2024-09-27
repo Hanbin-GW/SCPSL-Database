@@ -37,5 +37,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
+Discord_Java/src/main/java/org/example/Token.java
 /src/main/java/org/example/Token.java
-src/main/java/org/example/Token.java
