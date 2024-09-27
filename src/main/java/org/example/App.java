@@ -3,13 +3,25 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.commands.build.Commands;
+import org.example.Commands.HelloCommand;
+import org.example.Commands.PingCommand;
+
 public class App extends ListenerAdapter {
     public static void main(String[] args) throws Exception{
         String token = Token.DiscordBotToken; // 복사한 토큰을 여기에 입력하세요
-        JDABuilder.createDefault(token)
+        JDABuilder jdaBuilder = JDABuilder.createDefault(token)
                 .addEventListeners(new App())
-                .setActivity(Activity.playing("Hello World!"))
-                .build();
+                .addEventListeners(new HelloCommand())
+                .addEventListeners(new PingCommand())
+                .setActivity(Activity.playing("Hello World!"));
+        jdaBuilder.build().updateCommands()
+                .addCommands(
+                        Commands.slash("ping", "Returns Pong!"),    // ping 슬래시 커맨드 등록
+                        Commands.slash("hello", "Greets the user")
+                ).queue();
+
+
     }
 
     @Override
